@@ -1,4 +1,4 @@
-package com.spring.with.tests.testing;
+package com.spring.with.tests.testing.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
