@@ -12,9 +12,13 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -38,9 +42,7 @@ public class OtterControllerWithMvcTest {
         secondOtter.setId(2L);
         secondOtter.setName("Mehtap");
         secondOtter.setBirthDate(new Date(2023, 9, 9));
-        when(otterRepository.findAll()).thenReturn(List.of(
-                firstOtter, secondOtter
-        ));
+        when(otterRepository.findAll()).thenReturn(List.of(firstOtter, secondOtter));
 
         val json = mvc.perform(get("/otter"))
                 .andExpect(status().isOk())
@@ -48,5 +50,8 @@ public class OtterControllerWithMvcTest {
                 .getResponse()
                 .getContentAsString() ;
         System.out.println(json);
+
+        // If you were testing a CREATE endpoint (probably a POST)
+        verify(otterRepository).save(any());
     }
 }
