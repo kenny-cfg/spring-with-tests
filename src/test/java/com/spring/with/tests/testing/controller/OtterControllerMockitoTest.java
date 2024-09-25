@@ -4,21 +4,24 @@ import com.spring.with.tests.testing.entity.Otter;
 import com.spring.with.tests.testing.repository.OtterRepository;
 import lombok.val;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Incubating;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Date;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 
-@SpringBootTest
-class OtterControllerTest {
-    @MockBean
+@ExtendWith(MockitoExtension.class)
+public class OtterControllerMockitoTest {
+    @Mock
     private OtterRepository otterRepository;
-    @Autowired
+    @InjectMocks
     private OtterController otterController;
 
     @Test

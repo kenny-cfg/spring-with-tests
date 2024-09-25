@@ -1,6 +1,8 @@
 package com.spring.with.tests.testing.controller;
 
 import com.spring.with.tests.testing.entity.Otter;
+import com.spring.with.tests.testing.entity.OtterDto;
+import com.spring.with.tests.testing.entity.OtterMapper;
 import com.spring.with.tests.testing.repository.OtterRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.val;
@@ -17,10 +19,14 @@ import java.util.Collection;
 @RequiredArgsConstructor
 public class OtterController {
     private final OtterRepository otterRepository;
+    private final OtterMapper otterMapper;
 
     @GetMapping
-    public ResponseEntity<Collection<Otter>> getAll() {
+    public ResponseEntity<Collection<OtterDto>> getAll() {
         val allOtters = otterRepository.findAll();
-        return ResponseEntity.ok(allOtters);
+        val allMappedOtters = allOtters.stream()
+                .map(it -> otterMapper.map(it))
+                .toList();
+        return ResponseEntity.ok(allMappedOtters);
     }
 }
