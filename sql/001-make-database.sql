@@ -4,7 +4,7 @@ USE zoo;
 
 CREATE TABLE otter
 (
-    id      INT AUTO_INCREMENT PRIMARY KEY,
-    name    VARCHAR(50) NOT NULL,
-    birthDate DATE NOT NULL
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    birth_date DATE NOT NULL
 );
