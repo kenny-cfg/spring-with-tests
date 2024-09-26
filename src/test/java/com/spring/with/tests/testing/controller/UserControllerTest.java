@@ -31,6 +31,6 @@ class UserControllerTest {
                 """);
 
         mvc.perform(request)
-                .andExpect(status().isCreated());
+                .andExpect(status().isNoContent());
     }
 }
