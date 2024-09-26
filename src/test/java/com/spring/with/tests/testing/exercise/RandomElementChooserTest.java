@@ -25,4 +25,13 @@ class RandomElementChooserTest {
 
         assertTrue(source.contains(result));
     }
+
+    @Test
+    void choosesRandomElementFromIntegers() {
+        val source = List.of(1, 2, 3);
+
+        val result = randomElementChooser.choose(source);
+
+        assertTrue(source.contains(result));
+    }
 }
