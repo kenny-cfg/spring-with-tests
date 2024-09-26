@@ -6,8 +6,8 @@ import java.util.Collection;
 import java.util.Random;
 
 public class RandomElementChooser {
-    public <T> T choose(Collection<T> source) {
-        val index = new Random().nextInt(source.size());
-        return source.stream().toList().get(index);
+    public <T> T choose(Collection<T> pooBum) {
+        val index = new Random().nextInt(pooBum.size());
+        return pooBum.stream().toList().get(index);
     }
 }
