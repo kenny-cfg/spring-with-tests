@@ -5,8 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class PalindromeCheckerTest {
@@ -18,5 +17,12 @@ class PalindromeCheckerTest {
         val result = palindromeChecker.check("a");
 
         assertTrue(result);
+    }
+
+    @Test
+    void when_doubleLetterNotPalindrome_then_returnsFalse() {
+        val result = palindromeChecker.check("ab");
+
+        assertFalse(result);
     }
 }
