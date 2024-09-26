@@ -6,8 +6,14 @@ import org.springframework.stereotype.Component;
 @Component
 public class PalindromeChecker {
     public boolean check(String source) {
+        if (source.length() <= 1) {
+            return true;
+        }
         val lastCharacter = source.charAt(source.length() - 1);
         val firstCharacter = source.charAt(0);
-        return firstCharacter == lastCharacter;
+        if (firstCharacter != lastCharacter ) {
+            return false;
+        }
+        return check(source.substring(1, source.length() - 1));
     }
 }

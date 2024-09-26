@@ -25,4 +25,18 @@ class PalindromeCheckerTest {
 
         assertFalse(result);
     }
+
+    @Test
+    void when_multipleLettersNotPalindrome_then_returnsFalse() {
+        val result = palindromeChecker.check("helloh");
+
+        assertFalse(result);
+    }
+
+    @Test
+    void when_multipleLettersPalindrome_then_returnsTrue() {
+        val result = palindromeChecker.check("abba");
+
+        assertTrue(result);
+    }
 }
