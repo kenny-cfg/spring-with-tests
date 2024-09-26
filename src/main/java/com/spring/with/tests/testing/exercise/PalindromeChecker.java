@@ -6,6 +6,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class PalindromeChecker {
     public boolean check(String source) {
+        if (source == null) {
+            return false;
+        }
         if (source.length() <= 1) {
             return true;
         }

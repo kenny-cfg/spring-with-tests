@@ -39,4 +39,11 @@ class PalindromeCheckerTest {
 
         assertTrue(result);
     }
+
+    @Test
+    void when_null_then_returnsFalse() {
+        val result = palindromeChecker.check(null);
+
+        assertFalse(result);
+    }
 }
