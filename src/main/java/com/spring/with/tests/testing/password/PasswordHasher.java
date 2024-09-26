@@ -1,19 +1,18 @@
 package com.spring.with.tests.testing.password;
 
+import lombok.val;
+import org.springframework.security.crypto.argon2.Argon2PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 @Component
 public class PasswordHasher {
-    public String hash(String password) {
-        /*
-@Test
-public void givenRawPassword_whenEncodedWithArgon2_thenMatchesEncodedPassword() {
-    String rawPassword = "Baeldung";
-    Argon2PasswordEncoder arg2SpringSecurity = new Argon2PasswordEncoder(16, 32, 1, 60000, 10);
-    String springBouncyHash = arg2SpringSecurity.encode(rawPassword);
+    private final Argon2PasswordEncoder arg2SpringSecurity = new Argon2PasswordEncoder(16, 32, 1, 60000, 10);
 
-    assertTrue(arg2SpringSecurity.matches(rawPassword, springBouncyHash));
-}         */
-        return "NEW_HASH+" + password;
+    public String hash(String password) {
+        return arg2SpringSecurity.encode(password);
+    }
+
+    public boolean verify(String password, String hashedPassword) {
+        return arg2SpringSecurity.matches(password, hashedPassword);
     }
 }
