@@ -9,14 +9,18 @@ public class PalindromeChecker {
         if (source == null) {
             return false;
         }
-        if (source.length() <= 1) {
-            return true;
-        }
-        val lastCharacter = source.charAt(source.length() - 1);
-        val firstCharacter = source.charAt(0);
-        if (firstCharacter != lastCharacter ) {
-            return false;
-        }
-        return check(source.substring(1, source.length() - 1));
+        val builder = new StringBuilder(source);
+        val reversed = builder.reverse().toString();
+        return source.equals(reversed);
+//
+//        if (source.length() <= 1) {
+//            return true;
+//        }
+//        val lastCharacter = source.charAt(source.length() - 1);
+//        val firstCharacter = source.charAt(0);
+//        if (firstCharacter != lastCharacter ) {
+//            return false;
+//        }
+//        return check(source.substring(1, source.length() - 1));
     }
 }
