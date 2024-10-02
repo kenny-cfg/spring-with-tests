@@ -1,10 +1,8 @@
 package com.spring.with.tests.testing.controller;
 
-import com.spring.with.tests.testing.entity.Otter;
 import com.spring.with.tests.testing.entity.OtterDto;
 import com.spring.with.tests.testing.entity.OtterMapper;
 import com.spring.with.tests.testing.repository.OtterRepository;
-import lombok.RequiredArgsConstructor;
 import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,21 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collection;
 
+@SuppressWarnings("SpringJavaAutowiredFieldsWarningInspection")
 @RestController
-@RequestMapping("otter")
-@RequiredArgsConstructor
-/*
-Spring automatically @Autowired on all constructor arguments if there is
-only one constructor
-
-Making the dependencies `final` means they are immutable, and required in
-the constructor
-
-`@RequiredArgsConstructor` will generate a constructor for you
- */
-public class OtterController {
-    private final OtterRepository otterRepository;
-    private final OtterMapper otterMapper;
+@RequestMapping("otter-with-magic")
+public class OtterControllerWithoutMagic {
+    @Autowired
+    private OtterRepository otterRepository;
+    @Autowired
+    private OtterMapper otterMapper;
 
     @GetMapping
     public ResponseEntity<Collection<OtterDto>> getAll() {
