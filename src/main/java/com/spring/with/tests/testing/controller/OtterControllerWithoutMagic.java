@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collection;
+import java.util.logging.Logger;
 
 @SuppressWarnings("SpringJavaAutowiredFieldsWarningInspection")
 @RestController
@@ -20,10 +21,13 @@ public class OtterControllerWithoutMagic {
     private OtterRepository otterRepository;
     @Autowired
     private OtterMapper otterMapper;
+    private final Logger log = Logger.getLogger(OtterControllerWithoutMagic.class.getName());
 
     @GetMapping
     public ResponseEntity<Collection<OtterDto>> getAll() {
+        log.info("Getting all");
         val allOtters = otterRepository.findAll();
+        log.warning("Random warning");
         val allMappedOtters = allOtters.stream()
                 .map(it -> otterMapper.map(it))
                 .toList();
