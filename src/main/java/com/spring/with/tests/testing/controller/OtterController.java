@@ -48,9 +48,10 @@ public class OtterController {
     @PostMapping("{id}")
     public ResponseEntity<String> example(
             @RequestBody ExamplePayload body,
-            @PathVariable String id
+            @PathVariable String id,
+            @RequestParam String blah
     ) {
-        return ResponseEntity.ok("id is: " + id + ", laila is: " + body.laila);
+        return ResponseEntity.ok("id is: " + id + ", laila is: " + body.laila + ", blah is: " + blah);
     }
 
     @Data
