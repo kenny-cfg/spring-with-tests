@@ -4,16 +4,16 @@ import com.spring.with.tests.testing.entity.Otter;
 import com.spring.with.tests.testing.entity.OtterDto;
 import com.spring.with.tests.testing.entity.OtterMapper;
 import com.spring.with.tests.testing.repository.OtterRepository;
+import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.Map;
 
 @RestController
 @RequestMapping("otter")
@@ -36,12 +36,26 @@ public class OtterController {
 
     @GetMapping
     public ResponseEntity<Collection<OtterDto>> getAll() {
-        log.info("Getting all");
+        log.debug("Getting all");
         val allOtters = otterRepository.findAll();
         log.warn("Random warning");
         val allMappedOtters = allOtters.stream()
                 .map(it -> otterMapper.map(it))
                 .toList();
         return ResponseEntity.ok(allMappedOtters);
+    }
+
+    @PostMapping("{id}")
+    public ResponseEntity<String> example(
+            @RequestBody ExamplePayload body,
+            @PathVariable String id
+    ) {
+        return ResponseEntity.ok("id is: " + id + ", laila is: " + body.laila);
+    }
+
+    @Data
+    public static class ExamplePayload {
+        private final String laila;
+        private final String maryAnn;
     }
 }
