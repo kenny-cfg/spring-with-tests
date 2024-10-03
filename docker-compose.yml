@@ -3,3 +3,10 @@ services:
     image: testing-service
     ports:
       - '8080:8080'
+  database:
+    image: "mysql:8.0-debian"
+    environment:
+      MYSQL_DATABASE: zoo
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - '3306:3306'
