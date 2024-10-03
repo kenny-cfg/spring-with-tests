@@ -2,7 +2,7 @@ package com.spring.with.tests.testing.controller;
 
 import com.spring.with.tests.testing.entity.OtterDto;
 import com.spring.with.tests.testing.entity.OtterMapper;
-import com.spring.with.tests.testing.repository.OtterRepository;
+//import com.spring.with.tests.testing.repository.OtterRepository;
 import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,8 +17,8 @@ import java.util.logging.Logger;
 @RestController
 @RequestMapping("otter-with-magic")
 public class OtterControllerWithoutMagic {
-    @Autowired
-    private OtterRepository otterRepository;
+//    @Autowired
+//    private OtterRepository otterRepository;
     @Autowired
     private OtterMapper otterMapper;
     private final Logger log = Logger.getLogger(OtterControllerWithoutMagic.class.getName());
@@ -26,11 +26,12 @@ public class OtterControllerWithoutMagic {
     @GetMapping
     public ResponseEntity<Collection<OtterDto>> getAll() {
         log.info("Getting all");
-        val allOtters = otterRepository.findAll();
-        log.warning("Random warning");
-        val allMappedOtters = allOtters.stream()
-                .map(it -> otterMapper.map(it))
-                .toList();
-        return ResponseEntity.ok(allMappedOtters);
+        throw new RuntimeException();
+//        val allOtters = otterRepository.findAll();
+//        log.warning("Random warning");
+//        val allMappedOtters = allOtters.stream()
+//                .map(it -> otterMapper.map(it))
+//                .toList();
+//        return ResponseEntity.ok(allMappedOtters);
     }
 }

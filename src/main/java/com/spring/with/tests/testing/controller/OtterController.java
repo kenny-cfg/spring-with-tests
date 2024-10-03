@@ -3,7 +3,7 @@ package com.spring.with.tests.testing.controller;
 import com.spring.with.tests.testing.entity.Otter;
 import com.spring.with.tests.testing.entity.OtterDto;
 import com.spring.with.tests.testing.entity.OtterMapper;
-import com.spring.with.tests.testing.repository.OtterRepository;
+//import com.spring.with.tests.testing.repository.OtterRepository;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -31,18 +32,19 @@ the constructor
 Also: `@Slf4j` instantiates a logger
  */
 public class OtterController {
-    private final OtterRepository otterRepository;
+//    private final OtterRepository otterRepository;
     private final OtterMapper otterMapper;
 
     @GetMapping
     public ResponseEntity<Collection<OtterDto>> getAll() {
         log.debug("Getting all");
-        val allOtters = otterRepository.findAll();
-        log.warn("Random warning");
-        val allMappedOtters = allOtters.stream()
-                .map(it -> otterMapper.map(it))
-                .toList();
-        return ResponseEntity.ok(allMappedOtters);
+        return ResponseEntity.ok(List.of());
+//        val allOtters = otterRepository.findAll();
+//        log.warn("Random warning");
+//        val allMappedOtters = allOtters.stream()
+//                .map(it -> otterMapper.map(it))
+//                .toList();
+//        return ResponseEntity.ok(allMappedOtters);
     }
 
     @PostMapping("{id}")

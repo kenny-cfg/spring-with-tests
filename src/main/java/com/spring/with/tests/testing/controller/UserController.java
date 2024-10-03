@@ -3,7 +3,7 @@ package com.spring.with.tests.testing.controller;
 import com.spring.with.tests.testing.entity.RegistrationRequest;
 import com.spring.with.tests.testing.entity.User;
 import com.spring.with.tests.testing.password.PasswordHasher;
-import com.spring.with.tests.testing.repository.UserRepository;
+//import com.spring.with.tests.testing.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.val;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("user")
 @RequiredArgsConstructor
 public class UserController {
-    private final UserRepository userRepository;
+//    private final UserRepository userRepository;
     private final PasswordHasher passwordHasher;
 
     @PostMapping
@@ -25,7 +25,7 @@ public class UserController {
         val user = new User();
         user.setUsername(request.getUsername());
         user.setHashedPassword(hashedPassword);
-        userRepository.save(user);
+//        userRepository.save(user);
         return ResponseEntity.noContent().build();
     }
 }
