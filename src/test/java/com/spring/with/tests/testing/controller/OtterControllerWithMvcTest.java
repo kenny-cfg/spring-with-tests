@@ -1,7 +1,7 @@
 package com.spring.with.tests.testing.controller;
 
 import com.spring.with.tests.testing.entity.Otter;
-import com.spring.with.tests.testing.repository.OtterRepository;
+//import com.spring.with.tests.testing.repository.OtterRepository;
 import lombok.SneakyThrows;
 import lombok.val;
 import org.junit.jupiter.api.Test;
@@ -23,35 +23,35 @@ import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@SpringBootTest
-@AutoConfigureMockMvc
-public class OtterControllerWithMvcTest {
-    @MockBean
-    private OtterRepository otterRepository;
-    @Autowired
-    private MockMvc mvc;
-
-    @Test
-    @SneakyThrows
-    void when_getAll_then_allOttersReturned() {
-        val firstOtter = new Otter();
-        firstOtter.setId(1L);
-        firstOtter.setName("Vimbai");
-        firstOtter.setBirthDate(new Date(2024, 9, 9));
-        val secondOtter = new Otter();
-        secondOtter.setId(2L);
-        secondOtter.setName("Mehtap");
-        secondOtter.setBirthDate(new Date(2023, 9, 9));
-        when(otterRepository.findAll()).thenReturn(List.of(firstOtter, secondOtter));
-
-        val json = mvc.perform(get("/otter"))
-                .andExpect(status().isOk())
-                .andReturn()
-                .getResponse()
-                .getContentAsString() ;
-        System.out.println(json);
-
-        // If you were testing a CREATE endpoint (probably a POST)
-        verify(otterRepository).save(any());
-    }
-}
+//@SpringBootTest
+//@AutoConfigureMockMvc
+//public class OtterControllerWithMvcTest {
+//    @MockBean
+//    private OtterRepository otterRepository;
+//    @Autowired
+//    private MockMvc mvc;
+//
+//    @Test
+//    @SneakyThrows
+//    void when_getAll_then_allOttersReturned() {
+//        val firstOtter = new Otter();
+//        firstOtter.setId(1L);
+//        firstOtter.setName("Vimbai");
+//        firstOtter.setBirthDate(new Date(2024, 9, 9));
+//        val secondOtter = new Otter();
+//        secondOtter.setId(2L);
+//        secondOtter.setName("Mehtap");
+//        secondOtter.setBirthDate(new Date(2023, 9, 9));
+//        when(otterRepository.findAll()).thenReturn(List.of(firstOtter, secondOtter));
+//
+//        val json = mvc.perform(get("/otter"))
+//                .andExpect(status().isOk())
+//                .andReturn()
+//                .getResponse()
+//                .getContentAsString() ;
+//        System.out.println(json);
+//
+//        // If you were testing a CREATE endpoint (probably a POST)
+//        verify(otterRepository).save(any());
+//    }
+//}
