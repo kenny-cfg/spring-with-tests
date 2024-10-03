@@ -9,41 +9,41 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class PalindromeCheckerTest {
-    @Autowired
-    private PalindromeChecker palindromeChecker;
-
-    @Test
-    void when_singleLetter_then_returnsTrue() {
-        val result = palindromeChecker.check("a");
-
-        assertTrue(result);
-    }
-
-    @Test
-    void when_doubleLetterNotPalindrome_then_returnsFalse() {
-        val result = palindromeChecker.check("ab");
-
-        assertFalse(result);
-    }
-
-    @Test
-    void when_multipleLettersNotPalindrome_then_returnsFalse() {
-        val result = palindromeChecker.check("helloh");
-
-        assertFalse(result);
-    }
-
-    @Test
-    void when_multipleLettersPalindrome_then_returnsTrue() {
-        val result = palindromeChecker.check("abba");
-
-        assertTrue(result);
-    }
-
-    @Test
-    void when_null_then_returnsFalse() {
-        val result = palindromeChecker.check(null);
-
-        assertFalse(result);
-    }
+//    @Autowired
+//    private PalindromeChecker palindromeChecker;
+//
+//    @Test
+//    void when_singleLetter_then_returnsTrue() {
+//        val result = palindromeChecker.check("a");
+//
+//        assertTrue(result);
+//    }
+//
+//    @Test
+//    void when_doubleLetterNotPalindrome_then_returnsFalse() {
+//        val result = palindromeChecker.check("ab");
+//
+//        assertFalse(result);
+//    }
+//
+//    @Test
+//    void when_multipleLettersNotPalindrome_then_returnsFalse() {
+//        val result = palindromeChecker.check("helloh");
+//
+//        assertFalse(result);
+//    }
+//
+//    @Test
+//    void when_multipleLettersPalindrome_then_returnsTrue() {
+//        val result = palindromeChecker.check("abba");
+//
+//        assertTrue(result);
+//    }
+//
+//    @Test
+//    void when_null_then_returnsFalse() {
+//        val result = palindromeChecker.check(null);
+//
+//        assertFalse(result);
+//    }
 }

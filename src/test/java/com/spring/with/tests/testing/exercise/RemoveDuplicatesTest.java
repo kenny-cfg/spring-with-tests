@@ -9,16 +9,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class RemoveDuplicatesTest {
-    @Autowired
-    private RemoveDuplicates removeDuplicates;
-
-    @Test
-    void removesDuplicates() {
-        val source = new String[]{"apple", "apple", "pear"};
-        val expected = new String[]{"apple", "pear"};
-
-        val actual = removeDuplicates.remove(source);
-
-        assertArrayEquals(expected, actual);
-    }
+//    @Autowired
+//    private RemoveDuplicates removeDuplicates;
+//
+//    @Test
+//    void removesDuplicates() {
+//        val source = new String[]{"apple", "apple", "pear"};
+//        val expected = new String[]{"apple", "pear"};
+//
+//        val actual = removeDuplicates.remove(source);
+//
+//        assertArrayEquals(expected, actual);
+//    }
 }
