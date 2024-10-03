@@ -1,0 +1,5 @@
+services:
+  testing:
+    image: testing-service
+    ports:
+      - '8080:8080'
